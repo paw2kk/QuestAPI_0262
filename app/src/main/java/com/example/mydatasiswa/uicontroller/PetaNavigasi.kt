@@ -13,8 +13,7 @@ import com.example.mydatasiswa.view.HomeScreen
 
 @Composable
 fun DataSiswaApp(navController: NavHostController =
-                     rememberNavController(), modifier: Modifier
-){
+                     rememberNavController(), modifier: Modifier){
     HostNavigasi(navController = navController)
 }
 

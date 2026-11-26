@@ -1,5 +1,37 @@
 package com.example.mydatasiswa.view
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.DividerDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mydatasiswa.uicontroller.route.DestinasiEntry
+import com.example.mydatasiswa.viewmodel.DetailSiswa
+import com.example.mydatasiswa.viewmodel.EntryViewModel
+import com.example.mydatasiswa.viewmodel.PenyediaViewModel
+import com.example.mydatasiswa.viewmodel.UIStateSiswa
+import kotlinx.coroutines.launch
+import com.example.mydatasiswa.R
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EntrySiswaScreen(
@@ -102,8 +134,10 @@ fun FormTambahSiswa(
             value = detailSiswa.telpon,
             onValueChange = {onValueChange(detailSiswa.copy(telpon = it
             ))},
-            keyboardOptions = KeyboardOptions(keyboardType =
-                KeyboardType.Number),
+            keyboardOptions = KeyboardOptions(
+                keyboardType =
+                    KeyboardType.Number
+            ),
             label = { Text(text = stringResource(R.string.telpon)) },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
