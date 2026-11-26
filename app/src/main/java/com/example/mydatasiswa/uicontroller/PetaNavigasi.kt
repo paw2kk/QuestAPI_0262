@@ -11,9 +11,11 @@ import com.example.mydatasiswa.uicontroller.route.DestinasiHome
 import com.example.mydatasiswa.view.EntrySiswaScreen
 import com.example.mydatasiswa.view.HomeScreen
 
+
 @Composable
 fun DataSiswaApp(navController: NavHostController =
-                     rememberNavController(), modifier: Modifier){
+                     rememberNavController(), modifier: Modifier
+){
     HostNavigasi(navController = navController)
 }
 
@@ -25,15 +27,11 @@ fun HostNavigasi(
     NavHost(navController = navController, startDestination =
         DestinasiHome.route, modifier = Modifier ){
         composable(DestinasiHome.route) {
-            HomeScreen(navigateToItemEntry = { navController.navigate
-                (DestinasiEntry.route) },
-
+            HomeScreen(navigateToItemEntry = { navController.navigate(DestinasiEntry.route) },
                 )
         }
         composable(DestinasiEntry.route){
-            EntrySiswaScreen(navigateBack = { navController.navigate
-                (DestinasiHome.route) })
+            EntrySiswaScreen(navigateBack = { navController.navigate(DestinasiHome.route) })
         }
-
     }
 }
